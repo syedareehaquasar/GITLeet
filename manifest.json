@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "GITLeet",
+    "description": "Sync you Leetcode submissions with GitHub/GitLab repository",
+    "homepage_url": "https://github.com/syedareehaquasar/GITLeet",
+    "version": "1.0",
+    "author": "Syeda Reeha Quasar",
+    "browser_action": {
+        "default_icon": "images/thumbnails.png",
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "16": "images/thumbnails.png",
+        "48": "images/thumbnails.png",
+        "128": "images/thumbnails.png"
+    },
+    "background": {
+        "scripts": ["scripts/background.js"],
+        "persistent": false
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "unlimitedStorage",
+        "storage"
+    ],
+    "content_scripts": [{
+        "matches": [
+            "https://leetcode.com/*", "https://github.com/*", "https://gilab.com/"
+        ],
+        "js": ["scripts/leetcode.js", "scripts/authorize.js"],
+        "run_at": "document_start"
+    }],
+    "content_security_policy": "script-src 'self' https://code.jquery.com/jquery-3.3.1.min.js https://github.com/login/oauth/authorize https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js https://gitlab.com/login/oauth/authorize; object-src 'self'"
+}
