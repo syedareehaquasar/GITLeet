@@ -269,7 +269,7 @@ const linkStatusCode = (status, name) => {
         if (token === null || token === undefined) {
           /* Not authorized yet. */
           $('#error').text(
-            'Authorization error - Grant gitleet access to your GitHub account to continue (launch extension to proceed)',
+            'Authorization error - Grant gitleet access to your GitHub account to continue (launch extension to proceed) [not authorized yet]',
           );
           $('#error').show();
           $('#success').hide();
@@ -281,7 +281,7 @@ const linkStatusCode = (status, name) => {
             if (!username) {
               /* Improper authorization. */
               $('#error').text(
-                'Improper Authorization error - Grant gitleet access to your GitHub account to continue (launch extension to proceed)',
+                'Improper Authorization error - Grant gitleet access to your GitHub account to continue (launch extension to proceed) [improper authorization !username]',
               );
               $('#error').show();
               $('#success').hide();
